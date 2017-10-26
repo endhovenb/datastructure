@@ -22,45 +22,46 @@ public class GenerateStudents {
      */
     public static void main(String[] args) {
         HashMap hm = new HashMap();
+        LinearProbingHashST tab1 = new LinearProbingHashST();
 
-        StudentList students = new StudentList(10000);
+        StudentList students = new StudentList(13);
 //        System.out.println(students);
 
         Student[] studenten = students.getList();
 
         for (Student student : studenten) {
             long hash = hashing(student.getLdap());
-            int punten = student.getEcts();           
+            int punten = student.getEcts();
             hm.put(hash, punten);
         }
-        
-        Map<Object, Integer> map = new TreeMap<>();     
-        
+
         Set set = hm.entrySet();
 
         // Get an iterator
         Iterator i = set.iterator();
 
         // Display elements
+        Map<Object, Integer> map = new TreeMap<>();
         while (i.hasNext()) {
             Map.Entry me = (Map.Entry) i.next();
             System.out.print(me.getKey() + ": ");
             System.out.println(me.getValue());
-            
-            Integer count = map.get(((long)me.getKey()%97));
-            map.put((((long)me.getKey()%97)), (count == null) ? 1 : count + 1);
+
+            tab1.put(me.getKey(), me.getValue());
+            System.out.println(tab1.get(me));
+//            Integer count = map.get(((long) me.getKey() % 97));
+//            map.put((((long) me.getKey() % 97)), (count == null) ? 1 : count + 1);
         }
-        printAantallen(map);
-        
+
+//        printAantallen(map);
 //        long hen = hashing("hen");
 //        long bart = hashing("bart");
 //        long pete = hashing("pete");
 //        System.out.println(hen);
 //        System.out.println(bart);
 //        System.out.println(pete);
-
     }
-    
+
     public static void printAantallen(Map<Object, Integer> map) {
         map.entrySet().forEach((entry) -> {
             System.out.println("gehasde ldap : " + entry.getKey()
@@ -72,6 +73,9 @@ public class GenerateStudents {
      * creer een hashcode van 9 cijfers waarbij het eerste cijfer de lengte is
      * de string van de letters worden omgezet in een cijfer afhankelijk van de
      * plek in het alfabet. a = 01, b = 02 etc.
+     *
+     * @param ldap
+     * @return
      */
     public static long hashing(String ldap) {
         long hash;
