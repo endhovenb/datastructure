@@ -25,7 +25,7 @@ public class GenerateStudents {
         LinearProbingHashST tab1 = new LinearProbingHashST();
 
         StudentList students = new StudentList(13);
-//        System.out.println(students);
+        //System.out.println(students);
 
         Student[] studenten = students.getList();
 
@@ -90,7 +90,7 @@ public class GenerateStudents {
             try {
                 char ch = ldap.charAt(i);
                 n = (int) ch - (int) 'a' + 1;
-            } catch (Exception e) {
+            } catch (Exception ex) {
                 n = 0;
             }
             t.add(String.valueOf(n));
@@ -101,13 +101,13 @@ public class GenerateStudents {
             cijfer1 = Integer.parseInt(cijfers[0]);
             cijfer2 = Integer.parseInt(cijfers[1]);
             cijfer3 = Integer.parseInt(cijfers[2]);
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             System.out.println("somthing went wrong");
         }
 
         try {
             cijfer4 = Integer.parseInt(cijfers[3]);
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
 
         }
 

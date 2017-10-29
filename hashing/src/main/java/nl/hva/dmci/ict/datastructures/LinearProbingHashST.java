@@ -8,6 +8,8 @@ package nl.hva.dmci.ict.datastructures;
 /**
  *
  * @author Bart
+ * @param <Key>
+ * @param <Value>
  */
 public class LinearProbingHashST<Key, Value> {
 
@@ -29,7 +31,8 @@ public class LinearProbingHashST<Key, Value> {
     }
 
     private void resize() {
-    }       // See page 474.
+        // See page 474.
+    }       
 
     public void put(Key key, Value val) {       
         int i;

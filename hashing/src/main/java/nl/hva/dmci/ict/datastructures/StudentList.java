@@ -40,7 +40,7 @@ public class StudentList {
      * an ldap list. If no file is found, 0 prefixes are read.
      */
     private void readPrefixes() {
-        ldaps = new ArrayList<Ldap>();
+        ldaps = new ArrayList<>();
         try (Scanner scan = new Scanner(getClass().getResourceAsStream(PREFIX_FILE))) {
             while (scan.hasNext()) {
                 String prefix = scan.nextLine();
