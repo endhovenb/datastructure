@@ -34,7 +34,7 @@ public class GenerateStudents {
             int punten = student.getEcts();
             hm.put(hash, punten);
         }
-
+        
         Set set = hm.entrySet();
 
         // Get an iterator
@@ -44,16 +44,16 @@ public class GenerateStudents {
         Map<Object, Integer> map = new TreeMap<>();
         while (i.hasNext()) {
             Map.Entry me = (Map.Entry) i.next();
-            System.out.print(me.getKey() + ": ");
-            System.out.println(me.getValue());
+            //System.out.print(me.getKey() + ": ");
+            //System.out.println(me.getValue());
 
             tab1.put(me.getKey(), me.getValue());
-            System.out.println(tab1.get(me));
-//            Integer count = map.get(((long) me.getKey() % 97));
-//            map.put((((long) me.getKey() % 97)), (count == null) ? 1 : count + 1);
+            //System.out.println(tab1.get(me));
+            Integer count = map.get(((long) me.getKey() % 97));
+            map.put((((long) me.getKey() % 97)), (count == null) ? 1 : count + 1);
         }
-
-//        printAantallen(map);
+      
+        printAantallen(map);
 //        long hen = hashing("hen");
 //        long bart = hashing("bart");
 //        long pete = hashing("pete");
@@ -104,7 +104,6 @@ public class GenerateStudents {
         } catch (NumberFormatException e) {
             System.out.println("somthing went wrong");
         }
-
         try {
             cijfer4 = Integer.parseInt(cijfers[3]);
         } catch (NumberFormatException e) {

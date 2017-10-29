@@ -7,19 +7,16 @@ package nl.hva.dmci.ict.datastructures;
 
 /**
  *
- * @author Bart
+ * @author Bart en Peter
  * @param <Key>
  * @param <Value>
  */
 public class LinearProbingHashST<Key, Value> {
 
-    private int N;
-    private int M = 13;
-    private Key[] keys;
-    private Value[] vals;  // the values
-// number of key-value pairs in the table
-// size of linear-probing table
-// the keys
+    private int N;          // number of key-value pairs in the table
+    private int M = 13;     // size of linear-probing table
+    private Key[] keys;     // the keys
+    private Value[] vals;   // the values
 
     public LinearProbingHashST() {
         keys = (Key[]) new Object[M];
@@ -32,9 +29,9 @@ public class LinearProbingHashST<Key, Value> {
 
     private void resize() {
         // See page 474.
-    }       
+    }
 
-    public void put(Key key, Value val) {       
+    public void put(Key key, Value val) {
         int i;
         for (i = hash(key); keys[i] != null; i = (i + 1) % M) {
             if (keys[i].equals(key)) {
@@ -47,6 +44,11 @@ public class LinearProbingHashST<Key, Value> {
         N++;
     }
 
+    /**
+     *
+     * @param key 
+     * @return
+     */
     public Value get(Key key) {
         for (int i = hash(key); keys[i] != null; i = (i + 1) % M) {
             if (keys[i].equals(key)) {
