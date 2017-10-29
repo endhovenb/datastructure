@@ -24,7 +24,7 @@ public class GenerateStudents {
         HashMap hm = new HashMap();
         LinearProbingHashST tab1 = new LinearProbingHashST();
 
-        StudentList students = new StudentList(13);
+        StudentList students = new StudentList(10000);
         //System.out.println(students);
 
         Student[] studenten = students.getList();
@@ -48,7 +48,7 @@ public class GenerateStudents {
             //System.out.println(me.getValue());
 
             tab1.put(me.getKey(), me.getValue());
-            //System.out.println(tab1.get(me));
+            System.out.println(tab1.get(me));
             Integer count = map.get(((long) me.getKey() % 97));
             map.put((((long) me.getKey() % 97)), (count == null) ? 1 : count + 1);
         }
@@ -90,7 +90,7 @@ public class GenerateStudents {
             try {
                 char ch = ldap.charAt(i);
                 n = (int) ch - (int) 'a' + 1;
-            } catch (Exception ex) {
+            } catch (Exception e) {
                 n = 0;
             }
             t.add(String.valueOf(n));
@@ -101,16 +101,19 @@ public class GenerateStudents {
             cijfer1 = Integer.parseInt(cijfers[0]);
             cijfer2 = Integer.parseInt(cijfers[1]);
             cijfer3 = Integer.parseInt(cijfers[2]);
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             System.out.println("somthing went wrong");
         }
+
         try {
             cijfer4 = Integer.parseInt(cijfers[3]);
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
 
         }
 
         hash = (lengte * 100000000) + (cijfer1 * 1000000) + (cijfer2 * 10000) + (cijfer3 * 100) + (cijfer4);
         return hash;
+
     }
+
 }

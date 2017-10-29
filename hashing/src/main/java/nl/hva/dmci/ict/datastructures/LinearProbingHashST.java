@@ -14,7 +14,7 @@ package nl.hva.dmci.ict.datastructures;
 public class LinearProbingHashST<Key, Value> {
 
     private int N;          // number of key-value pairs in the table
-    private int M = 13;     // size of linear-probing table
+    private int M = 10501;     // size of linear-probing table
     private Key[] keys;     // the keys
     private Value[] vals;   // the values
 
