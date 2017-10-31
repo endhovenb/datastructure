@@ -14,17 +14,11 @@ package nl.hva.dmci.ict.datastructures;
 public class SeparateChainingHashST<Key, Value> {
 
     private int N; // number of key-value pairs
-    private int M ; // hash table size
+    private final int M = 10501; // hash table size
     private int Collisions = 0; // keeps track of the number of collisions
-    private SequentialSearchST SS = new SequentialSearchST();
-    private SequentialSearchST<Key, Value>[] st; // array of ST objects
-
-    public SeparateChainingHashST() {
-        this(13);
-    }
-
-    public SeparateChainingHashST(int M) { // Create M linked lists.
-        this.M = M;
+    private final SequentialSearchST<Key, Value>[] st; // array of ST objects
+    
+    public SeparateChainingHashST() { // Create M linked lists.
         st = (SequentialSearchST<Key, Value>[]) new SequentialSearchST[M];
         for (int i = 0; i < M; i++) {
             st[i] = new SequentialSearchST();
@@ -32,7 +26,7 @@ public class SeparateChainingHashST<Key, Value> {
     }
 
     public int getCollisions() {
-        return SS.getCollisions();
+        return Collisions;
     }
 
     public int getM() {
@@ -48,7 +42,7 @@ public class SeparateChainingHashST<Key, Value> {
     }
 
     public void put(Key key, Value val) {
-        st[hash(key)].put(key, val);
+        Collisions = Collisions + st[hash(key)].put(key, val);
     }
 
     public Iterable<Key> keys() {

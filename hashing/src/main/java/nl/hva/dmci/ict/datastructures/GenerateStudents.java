@@ -2,11 +2,8 @@ package nl.hva.dmci.ict.datastructures;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
 
 /**
  * Small program that creates a list of students which can be used for the
@@ -35,12 +32,12 @@ public class GenerateStudents {
             hm.put(hash, punten);
             tab1.put(hash, punten);
             tab2.put(hash, punten);
-            System.out.println("tab1: " + tab1.get(hash));
-            System.out.println("tab2: " + tab2.get(hash));
+            //System.out.println("tab1: " + tab1.get(hash));
+            //System.out.println("tab2: " + tab2.get(hash));
         }
-        System.out.println("Tabel1 LinearProbingHashing");
+        System.out.println("LinearProbingHashing");
         System.out.println("number of collisions: " + tab1.getCollisions() + " With a M size of " + tab1.getM() + "\n");
-        System.out.println("Tabel2 SeparateChainingHashing");
+        System.out.println("SeparateChainingHashing");
         System.out.println("number of collisions: " + tab2.getCollisions() + " With a M size of " + tab2.getM() + "\n");
 
 //        Set set = hm.entrySet();
@@ -60,7 +57,7 @@ public class GenerateStudents {
 //            Integer count = map.get((long) me.getKey());
 //            map.put(((long) me.getKey()), (count == null) ? 1 : count + 1);
 //        }
-        //printAantallen(map);
+//        printAantallen(map);
 //        long hen = hashing("hen");
 //        long bart = hashing("bart");
 //        long pete = hashing("pete");

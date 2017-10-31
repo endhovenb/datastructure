@@ -13,8 +13,8 @@ package nl.hva.dmci.ict.datastructures;
  */
 public class SequentialSearchST<Key, Value> {
 
-    private Node first; // first node in the linked list
-    private int Collisions = 0; // keeps track of the number of collisions
+    private Node first;         //first node in the linked list
+    private int Collisions = 0; //keeps track of the number of collisions
 
     private class Node { // linked-list node
 
@@ -38,15 +38,16 @@ public class SequentialSearchST<Key, Value> {
         return null; // search miss
     }
 
-    public void put(Key key, Value val) { // Search for key. Update value if found; grow table if new.
+    public int put(Key key, Value val) { // Search for key. Update value if found; grow table if new.
         for (Node x = first; x != null; x = x.next) {
             if (key.equals(x.key)) {
                 x.val = val;
-                return;
+                break;
             } // Search hit: update val.
             Collisions++;
         }
-        first = new Node(key, val, first); // Search miss: add new node.
+        first = new Node(key, val, first); // Search miss: add new node
+        return Collisions;
     }
 
     public int getCollisions() {
