@@ -23,7 +23,8 @@ public class GenerateStudents {
     public static void main(String[] args) {
         HashMap hm = new HashMap();
         LinearProbingHashST tab1 = new LinearProbingHashST();
-
+        SeparateChainingHashST tab2 = new SeparateChainingHashST();
+        SequentialSearchST tab3 = new SequentialSearchST();
         StudentList students = new StudentList(10000);
         //System.out.println(students);
 
@@ -33,27 +34,38 @@ public class GenerateStudents {
             long hash = hashing(student.getLdap());
             int punten = student.getEcts();
             hm.put(hash, punten);
+            tab1.put(hash, punten);
+            tab2.put(hash, punten);
+            tab3.put(hash, punten);
+            System.out.println("tab1: " + tab1.get(hash));
+            System.out.println("tab2: " + tab2.get(hash));
+            System.out.println("tab3: " + tab3.get(hash));
         }
-        
-        Set set = hm.entrySet();
+        System.out.println("Tabel1 LinearProbingHashing");
+        System.out.println("number of collisions: " + tab1.getCollisions() + " With a M size of " + tab1.getM() + "\n");
+        System.out.println("Tabel2 SeparateChainingHashing");
+        System.out.println("number of collisions:" + " " + " With a M size of " + tab2.getM() + "\n");
+        System.out.println("Tabel3 SequentialSearch");
+        System.out.println("number of collisions:" + tab3.getCollisions() + " With a M size of " + "" + "\n");
 
-        // Get an iterator
-        Iterator i = set.iterator();
-
-        // Display elements
-        Map<Object, Integer> map = new TreeMap<>();
-        while (i.hasNext()) {
-            Map.Entry me = (Map.Entry) i.next();
-            //System.out.print(me.getKey() + ": ");
-            //System.out.println(me.getValue());
-
-            tab1.put(me.getKey(), me.getValue());
-            System.out.println(tab1.get(me));
-            Integer count = map.get(((long) me.getKey() % 97));
-            map.put((((long) me.getKey() % 97)), (count == null) ? 1 : count + 1);
-        }
-      
-        printAantallen(map);
+//        Set set = hm.entrySet();
+//
+//        // Get an iterator
+//        Iterator i = set.iterator();
+//
+//        // Display elements
+//        Map<Object, Integer> map = new TreeMap<>();
+//        while (i.hasNext()) {
+//            Map.Entry me = (Map.Entry) i.next();
+//            //System.out.print(me.getKey() + ": ");
+//            //System.out.println(me.getValue());
+//
+//            tab1.put(me.getKey() , me.getValue());
+//            System.out.println(tab1.get(me.getKey()));
+//            Integer count = map.get((long) me.getKey());
+//            map.put(((long) me.getKey()), (count == null) ? 1 : count + 1);
+//        }
+        //printAantallen(map);
 //        long hen = hashing("hen");
 //        long bart = hashing("bart");
 //        long pete = hashing("pete");
@@ -112,7 +124,7 @@ public class GenerateStudents {
         }
 
         hash = (lengte * 100000000) + (cijfer1 * 1000000) + (cijfer2 * 10000) + (cijfer3 * 100) + (cijfer4);
-        return hash;
+        return (hash % 97);
 
     }
 

@@ -14,6 +14,7 @@ package nl.hva.dmci.ict.datastructures;
 public class SequentialSearchST<Key, Value> {
 
     private Node first; // first node in the linked list
+    private int Collisions = 0; // keeps track of the number of collisions
 
     private class Node { // linked-list node
 
@@ -43,7 +44,13 @@ public class SequentialSearchST<Key, Value> {
                 x.val = val;
                 return;
             } // Search hit: update val.
+            Collisions++;
         }
         first = new Node(key, val, first); // Search miss: add new node.
     }
+
+    public int getCollisions() {
+        return Collisions;
+    }
+
 }

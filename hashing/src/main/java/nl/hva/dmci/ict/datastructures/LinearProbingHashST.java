@@ -17,6 +17,7 @@ public class LinearProbingHashST<Key, Value> {
     private int M = 10501;     // size of linear-probing table
     private Key[] keys;     // the keys
     private Value[] vals;   // the values
+    private long Collisions = 0; // keeps track of the number of collisions
 
     public LinearProbingHashST() {
         keys = (Key[]) new Object[M];
@@ -31,13 +32,28 @@ public class LinearProbingHashST<Key, Value> {
         // See page 474.
     }
 
+    public long getCollisions() {
+        return Collisions;
+    }
+
+    public int getN() {
+        return N;
+    }
+
+    public int getM() {
+        return M;
+    }
+
     public void put(Key key, Value val) {
+
         int i;
         for (i = hash(key); keys[i] != null; i = (i + 1) % M) {
+
             if (keys[i].equals(key)) {
                 vals[i] = val;
                 return;
             }
+            Collisions++;
         }
         keys[i] = key;
         vals[i] = val;
@@ -46,7 +62,7 @@ public class LinearProbingHashST<Key, Value> {
 
     /**
      *
-     * @param key 
+     * @param key
      * @return
      */
     public Value get(Key key) {

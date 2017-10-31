@@ -15,10 +15,11 @@ public class SeparateChainingHashST<Key, Value> {
 
     private int N; // number of key-value pairs
     private int M; // hash table size
+    private int Collisions = 0; // keeps track of the number of collisions
     private SequentialSearchST<Key, Value>[] st; // array of ST objects
 
     public SeparateChainingHashST() {
-        this(997);
+        this(13);
     }
 
     public SeparateChainingHashST(int M) { // Create M linked lists.
@@ -27,6 +28,14 @@ public class SeparateChainingHashST<Key, Value> {
         for (int i = 0; i < M; i++) {
             st[i] = new SequentialSearchST();
         }
+    }
+
+    public int getCollisions() {
+        return Collisions;
+    }
+
+    public int getM() {
+        return M;
     }
 
     private int hash(Key key) {
