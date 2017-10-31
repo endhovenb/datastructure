@@ -21,6 +21,7 @@ public class GenerateStudents {
         HashMap hm = new HashMap();
         LinearProbingHashST tab1 = new LinearProbingHashST();
         SeparateChainingHashST tab2 = new SeparateChainingHashST();
+        QuadraticHashST tab3 = new QuadraticHashST();
         StudentList students = new StudentList(10000);
         //System.out.println(students);
 
@@ -32,6 +33,8 @@ public class GenerateStudents {
             hm.put(hash, punten);
             tab1.put(hash, punten);
             tab2.put(hash, punten);
+            tab3.put(hash, punten);
+            //System.out.println(student);
             //System.out.println("tab1: " + tab1.get(hash));
             //System.out.println("tab2: " + tab2.get(hash));
         }
@@ -39,6 +42,8 @@ public class GenerateStudents {
         System.out.println("number of collisions: " + tab1.getCollisions() + " With a M size of " + tab1.getM() + "\n");
         System.out.println("SeparateChainingHashing");
         System.out.println("number of collisions: " + tab2.getCollisions() + " With a M size of " + tab2.getM() + "\n");
+        System.out.println("QuadraticHashing");
+        System.out.println("number of collisions: " + tab3.getCollisions() + " With a M size of " + tab3.getM() + "\n");
 
 //        Set set = hm.entrySet();
 //

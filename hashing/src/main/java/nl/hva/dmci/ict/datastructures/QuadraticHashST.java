@@ -7,19 +7,18 @@ package nl.hva.dmci.ict.datastructures;
 
 /**
  *
- * @author Bart en Peter
+ * @author Bart
  * @param <Key>
  * @param <Value>
  */
-public class LinearProbingHashST<Key, Value> {
-
+public class QuadraticHashST<Key, Value> {
     private int N;          // number of key-value pairs in the table
     private final int M = 10501;  // size of linear-probing table
     private final Key[] keys;     // the keys
     private final Value[] vals;   // the values
     private long Collisions = 0; // keeps track of the number of collisions
 
-    public LinearProbingHashST() {
+    public QuadraticHashST() {
         keys = (Key[]) new Object[M];
         vals = (Value[]) new Object[M];
     }
@@ -30,7 +29,7 @@ public class LinearProbingHashST<Key, Value> {
 
     public void put(Key key, Value val) {
         int i;
-        for (i = hash(key); keys[i] != null; i = (i + 1) % M) {
+        for (i = hash(key); keys[i] != null; i = (i + (i*i)) % M) {
             if (keys[i].equals(key)) {
                 vals[i] = val;
                 return;             
