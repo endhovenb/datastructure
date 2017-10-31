@@ -23,7 +23,7 @@ public class GenerateStudents {
         LinearProbingHashST tab1 = new LinearProbingHashST();
         SeparateChainingHashST tab2 = new SeparateChainingHashST();
         QuadraticHashST tab3 = new QuadraticHashST();
-        StudentList students = new StudentList(10000);
+        StudentList students = new StudentList(13);
         //System.out.println(students);
 
         Student[] studenten = students.getList();
@@ -35,9 +35,10 @@ public class GenerateStudents {
             tab1.put(hash, punten);
             tab2.put(hash, punten);
             tab3.put(hash, punten);
-            //System.out.println(student);
-            //System.out.println("tab1: " + tab1.get(hash));
-            //System.out.println("tab2: " + tab2.get(hash));
+            
+            System.out.println("LinearProbingHashing: \t" + tab1.get(hash));
+            System.out.println("SeparateChainingHashing: \t" + tab2.get(hash));
+            System.out.println("QuadraticHashing: \t" + tab3.get(hash));
         }
         System.out.println("LinearProbingHashing");
         System.out.println("number of collisions: " + tab1.getCollisions() + " With a M size of " + tab1.getM() + "\n");

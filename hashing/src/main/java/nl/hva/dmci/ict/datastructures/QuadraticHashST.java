@@ -13,7 +13,7 @@ package nl.hva.dmci.ict.datastructures;
  */
 public class QuadraticHashST<Key, Value> {
     private int N;          // number of key-value pairs in the table
-    private final int M = 10501;  // size of linear-probing table
+    private final int M = 13;  // size of linear-probing table
     private final Key[] keys;     // the keys
     private final Value[] vals;   // the values
     private long Collisions = 0; // keeps track of the number of collisions
@@ -56,10 +56,12 @@ public class QuadraticHashST<Key, Value> {
     }
 
     public Value get(Key key) {
-        for (int i = hash(key); keys[i] != null; i = (i + 1) % M) {
+        int j = 1;
+        for (int i = hash(key); keys[i] != null; i = (i + (j*j)) % M) {
             if (keys[i].equals(key)) {
                 return vals[i];
             }
+            j++;
         }
         return null;
     }
