@@ -14,7 +14,7 @@ package nl.hva.dmci.ict.datastructures;
 public class LinearProbingHashST<Key, Value> {
 
     private int N;          // number of key-value pairs in the table
-    private int M = 10501;     // size of linear-probing table
+    private int M = 10501;  // size of linear-probing table
     private Key[] keys;     // the keys
     private Value[] vals;   // the values
     private long Collisions = 0; // keeps track of the number of collisions
@@ -48,7 +48,6 @@ public class LinearProbingHashST<Key, Value> {
 
         int i;
         for (i = hash(key); keys[i] != null; i = (i + 1) % M) {
-
             if (keys[i].equals(key)) {
                 vals[i] = val;
                 return;

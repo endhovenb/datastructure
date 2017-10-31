@@ -14,8 +14,9 @@ package nl.hva.dmci.ict.datastructures;
 public class SeparateChainingHashST<Key, Value> {
 
     private int N; // number of key-value pairs
-    private int M; // hash table size
+    private int M ; // hash table size
     private int Collisions = 0; // keeps track of the number of collisions
+    private SequentialSearchST SS = new SequentialSearchST();
     private SequentialSearchST<Key, Value>[] st; // array of ST objects
 
     public SeparateChainingHashST() {
@@ -31,7 +32,7 @@ public class SeparateChainingHashST<Key, Value> {
     }
 
     public int getCollisions() {
-        return Collisions;
+        return SS.getCollisions();
     }
 
     public int getM() {

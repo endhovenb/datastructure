@@ -24,7 +24,6 @@ public class GenerateStudents {
         HashMap hm = new HashMap();
         LinearProbingHashST tab1 = new LinearProbingHashST();
         SeparateChainingHashST tab2 = new SeparateChainingHashST();
-        SequentialSearchST tab3 = new SequentialSearchST();
         StudentList students = new StudentList(10000);
         //System.out.println(students);
 
@@ -36,17 +35,13 @@ public class GenerateStudents {
             hm.put(hash, punten);
             tab1.put(hash, punten);
             tab2.put(hash, punten);
-            tab3.put(hash, punten);
             System.out.println("tab1: " + tab1.get(hash));
             System.out.println("tab2: " + tab2.get(hash));
-            System.out.println("tab3: " + tab3.get(hash));
         }
         System.out.println("Tabel1 LinearProbingHashing");
         System.out.println("number of collisions: " + tab1.getCollisions() + " With a M size of " + tab1.getM() + "\n");
         System.out.println("Tabel2 SeparateChainingHashing");
-        System.out.println("number of collisions:" + " " + " With a M size of " + tab2.getM() + "\n");
-        System.out.println("Tabel3 SequentialSearch");
-        System.out.println("number of collisions:" + tab3.getCollisions() + " With a M size of " + "" + "\n");
+        System.out.println("number of collisions: " + tab2.getCollisions() + " With a M size of " + tab2.getM() + "\n");
 
 //        Set set = hm.entrySet();
 //
@@ -124,7 +119,7 @@ public class GenerateStudents {
         }
 
         hash = (lengte * 100000000) + (cijfer1 * 1000000) + (cijfer2 * 10000) + (cijfer3 * 100) + (cijfer4);
-        return (hash % 97);
+        return (hash);
 
     }
 
