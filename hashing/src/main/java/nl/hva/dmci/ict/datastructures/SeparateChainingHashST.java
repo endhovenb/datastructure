@@ -14,7 +14,7 @@ package nl.hva.dmci.ict.datastructures;
 public class SeparateChainingHashST<Key, Value> {
 
     private int N; // number of key-value pairs
-    private final int M = 13; // hash table size
+    private final int M = 15401; // hash table size
     private int Collisions = 0; // keeps track of the number of collisions
     private final SequentialSearchST<Key, Value>[] st; // array of ST objects
     

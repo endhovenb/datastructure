@@ -23,8 +23,7 @@ public class GenerateStudents {
         LinearProbingHashST tab1 = new LinearProbingHashST();
         SeparateChainingHashST tab2 = new SeparateChainingHashST();
         QuadraticHashST tab3 = new QuadraticHashST();
-        StudentList students = new StudentList(13);
-        //System.out.println(students);
+        StudentList students = new StudentList(10000);
 
         Student[] studenten = students.getList();
 
@@ -35,17 +34,22 @@ public class GenerateStudents {
             tab1.put(hash, punten);
             tab2.put(hash, punten);
             tab3.put(hash, punten);
-            
-            System.out.println("LinearProbingHashing: \t" + tab1.get(hash));
-            System.out.println("SeparateChainingHashing: \t" + tab2.get(hash));
-            System.out.println("QuadraticHashing: \t" + tab3.get(hash));
         }
+        for(Student student : studenten){
+            System.out.println(tab1.get(hashing(student.getLdap())));
+            System.out.println(tab2.get(hashing(student.getLdap())));
+            System.out.println(tab3.get(hashing(student.getLdap())));
+        }
+        
         System.out.println("LinearProbingHashing");
-        System.out.println("number of collisions: " + tab1.getCollisions() + " With a M size of " + tab1.getM() + "\n");
+        System.out.println("number of collisions: " + tab1.getCollisions() 
+                + "\nWith a M size of: " + tab1.getM() + "\n");
         System.out.println("SeparateChainingHashing");
-        System.out.println("number of collisions: " + tab2.getCollisions() + " With a M size of " + tab2.getM() + "\n");
+        System.out.println("number of collisions: " + tab2.getCollisions() 
+                + "\nWith a M size of: " + tab2.getM() + "\n");
         System.out.println("QuadraticHashing");
-        System.out.println("number of collisions: " + tab3.getCollisions() + " With a M size of " + tab3.getM() + "\n");
+        System.out.println("number of collisions: " + tab3.getCollisions() 
+                + "\nWith a M size of: " + tab3.getM() + "\n");
 
 //        Set set = hm.entrySet();
 //
