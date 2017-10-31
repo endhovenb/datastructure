@@ -11,6 +11,7 @@ import java.util.Map;
  *
  * @author Dennis Breuker
  * @author Nico Tromp
+ * @author Bart en Peter
  */
 public class GenerateStudents {
 

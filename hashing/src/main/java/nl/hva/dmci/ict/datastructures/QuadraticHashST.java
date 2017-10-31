@@ -7,7 +7,7 @@ package nl.hva.dmci.ict.datastructures;
 
 /**
  *
- * @author Bart
+ * @author Bart en Peter
  * @param <Key>
  * @param <Value>
  */
@@ -29,12 +29,14 @@ public class QuadraticHashST<Key, Value> {
 
     public void put(Key key, Value val) {
         int i;
-        for (i = hash(key); keys[i] != null; i = (i + (i*i)) % M) {
+        int j = 1;
+        for (i = hash(key); keys[i] != null; i = (i+(j*j)) % M) {
             if (keys[i].equals(key)) {
                 vals[i] = val;
                 return;             
             }
             Collisions++;
+            j++;
         }
         keys[i] = key;
         vals[i] = val;
