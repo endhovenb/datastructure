@@ -52,29 +52,18 @@ public class GenerateStudents {
                 + "\nWith a M size of: " + tab3.getM() + "\n");
 
 //        Set set = hm.entrySet();
-//
 //        // Get an iterator
 //        Iterator i = set.iterator();
-//
 //        // Display elements
 //        Map<Object, Integer> map = new TreeMap<>();
 //        while (i.hasNext()) {
 //            Map.Entry me = (Map.Entry) i.next();
 //            //System.out.print(me.getKey() + ": ");
 //            //System.out.println(me.getValue());
-//
-//            tab1.put(me.getKey() , me.getValue());
-//            System.out.println(tab1.get(me.getKey()));
 //            Integer count = map.get((long) me.getKey());
 //            map.put(((long) me.getKey()), (count == null) ? 1 : count + 1);
 //        }
 //        printAantallen(map);
-//        long hen = hashing("hen");
-//        long bart = hashing("bart");
-//        long pete = hashing("pete");
-//        System.out.println(hen);
-//        System.out.println(bart);
-//        System.out.println(pete);
     }
 
     public static void printAantallen(Map<Object, Integer> map) {
