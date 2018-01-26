@@ -19,7 +19,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        final int AANTAL_STUDENTEN = 50;
+        final int AANTAL_STUDENTEN = 16000;
         Student[] studenten = new Student[AANTAL_STUDENTEN];
         String[] klassen = KlasGenerator.maakKlassen(AANTAL_STUDENTEN);
         for (int i = 0; i < AANTAL_STUDENTEN; i++) {
@@ -35,7 +35,7 @@ public class Main {
         //bubble.sort(studenten);
         
         //Dit is een injectionsort functie.
-        //studenten = Student.insertionSort(studenten);
+        studenten = Student.insertionSort(studenten);
         
         //Dit is een bucket sort om op klas te sorteren.
         //StudentBucketSorter bucket = new StudentBucketSorter();
